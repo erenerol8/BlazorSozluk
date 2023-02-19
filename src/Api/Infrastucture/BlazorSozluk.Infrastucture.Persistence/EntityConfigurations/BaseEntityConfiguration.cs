@@ -1,12 +1,21 @@
-﻿using System;
+﻿using BlazorSozluk.Api.Domain.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlazorSozluk.Infrastucture.Persistence.EntityConfigurations
+namespace BlazorSozluk.Infrastucture.Persistence.EntityConfigurations;
+
+public abstract class BaseEntityConfiguration<T> : IEntityTypeConfiguration<T> where T : BaseEntity
 {
-    internal class BaseEntityConfiguration
-    {
-    }
+     public virtual void Configure(EntityTypeBuilder<T> builder)
+     {
+        builder.HasKey(i => i.Id);
+
+        builder.Property(i => i.Id).ValueGeneratedOnAdd();
+        builder.Property(i => i.CreateDate).ValueGeneratedOnAdd();   
+     }
 }
