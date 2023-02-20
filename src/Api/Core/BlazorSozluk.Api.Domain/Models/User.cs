@@ -24,7 +24,7 @@ namespace BlazorSozluk.Api.Domain.Models
 
         public virtual ICollection<EntryComment> EntryComments { get; set; }
 
-        public virtual ICollection<EntryFavorites> EntryFavorites { get; set; }
+        public virtual ICollection<EntryFavorite> EntryFavorite { get; set; }
 
         public virtual ICollection<EntryCommentFavorite> EntryCommentFavorites { get; set; }
 
