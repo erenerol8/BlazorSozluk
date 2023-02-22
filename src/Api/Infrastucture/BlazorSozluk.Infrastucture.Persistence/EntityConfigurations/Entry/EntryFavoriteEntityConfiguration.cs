@@ -22,7 +22,8 @@ namespace BlazorSozluk.Infrastucture.Persistence.EntityConfigurations.Entry
 
             builder.HasOne(i => i.CreatedUser)
                    .WithMany(i => i.EntryFavorite)
-                   .HasForeignKey(i => i.CreatedById);
+                   .HasForeignKey(i => i.CreatedById)
+                   .OnDelete(DeleteBehavior.Restrict);
 
                            
         }
