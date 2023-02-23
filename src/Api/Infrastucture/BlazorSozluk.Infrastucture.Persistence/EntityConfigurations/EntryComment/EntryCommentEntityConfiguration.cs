@@ -20,11 +20,14 @@ namespace BlazorSozluk.Infrastucture.Persistence.EntityConfigurations.EntryComme
 
             builder.HasOne(i => i.CreatedBy)
                 .WithMany(i => i.EntryComments)
-                .HasForeignKey(i => i.CreatedBy);
+                .HasForeignKey(i => i.CreatedBy)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(i => i.Entry)
                 .WithMany(i => i.EntryComments)
                 .HasForeignKey(i => i.EntryId);
+                
+
         }
     }
 }

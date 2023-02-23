@@ -19,14 +19,16 @@ namespace BlazorSozluk.Infrastucture.Persistence.EntityConfigurations.Entry
             builder.ToTable("entryfavorite", BlazorSozlukContext.DEFAULT_SCHEMA);
 
             builder.HasOne(i => i.Entry)
-                .WithMany(i => i.EntryFavorites)
-                .HasForeignKey(i => i.EntryId);
+                   .WithMany(i => i.EntryFavorites)
+                   .HasForeignKey(i => i.EntryId);
 
             builder.HasOne(i => i.CreatedUser)
-                   .WithMany(i => i.EntryFavorite)
-                   .HasForeignKey(i => i.CreatedById);
+                   .WithMany(i => i.EntryFavorites)
+                   .HasForeignKey(i => i.CreatedById)
+                   .OnDelete(DeleteBehavior.Restrict);
 
                            
+
         }
     }
 }

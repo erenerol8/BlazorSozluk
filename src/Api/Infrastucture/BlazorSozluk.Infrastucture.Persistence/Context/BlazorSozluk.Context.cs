@@ -36,6 +36,18 @@ namespace BlazorSozluk.Infrastucture.Persistence.Context
 
         public DbSet<EntryCommentVote> EntryCommentVotes { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(!optionsBuilder.IsConfigured)
+            {
+                var SqlCon = "Data Source=localhost; Initial Catalog=blazorsozluk; Persist Security Info=True; User ID=sa;Password=Project123!";
+                optionsBuilder.UseSqlServer(SqlCon, opt =>
+                {
+                    opt.EnableRetryOnFailure();
+                });
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
