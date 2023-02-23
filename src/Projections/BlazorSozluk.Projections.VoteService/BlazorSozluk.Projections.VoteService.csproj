@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-BlazorSozluk.Projections.VoteService-51b046b9-4d8c-4811-b7b5-e5ac27a178fb</UserSecretsId>
+    <UserSecretsId>dotnet-BlazorSozluk.Projections.VoteService-4da45d1d-1d51-4004-8e43-8f7151a057c5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -19,12 +19,14 @@ namespace BlazorSozluk.Infrastucture.Persistence.EntityConfigurations.EntryComme
             builder.ToTable("entrycommentfavorite", BlazorSozlukContext.DEFAULT_SCHEMA);
 
             builder.HasOne(i => i.EntryComment)
-                    .WithMany(i => i.EntryCommentFavorites)
-                    .HasForeignKey(i => i.EntryCommentId);
+                .WithMany(i => i.EntryCommentFavorites)
+                .HasForeignKey(i => i.EntryComment);
+
 
             builder.HasOne(i => i.CreatedUser)
-                   .WithMany(i => i.EntryCommentFavorites)
-                   .HasForeignKey(i => i.CreatedById);
+            .WithMany(i => i.EntryCommentFavorites)
+            .HasForeignKey(i => i.CreatedById);
         }
+
     }
 }

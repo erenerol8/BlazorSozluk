@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-BlazorSozluk.Projections.FavoriteService-ab40068c-2c82-41c3-9350-fff8b1497ce0</UserSecretsId>
+    <UserSecretsId>dotnet-BlazorSozluk.Projections.FavoriteService-8cb2a046-287c-45b8-8159-d1fd5b2839a4</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

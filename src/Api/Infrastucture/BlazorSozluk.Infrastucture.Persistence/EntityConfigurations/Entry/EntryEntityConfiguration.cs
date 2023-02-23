@@ -1,5 +1,4 @@
 ﻿using BlazorSozluk.Infrastucture.Persistence.Context;
-using BlazorSozluk.Infrastucture.Persistence.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlazorSozluk.Infrastucture.Persistence.EntityConfiguration.Entry
+namespace BlazorSozluk.Infrastucture.Persistence.EntityConfigurations.Entry
 {
     public class EntryEntityConfiguration : BaseEntityConfiguration<Api.Domain.Models.Entry>
     {
@@ -19,8 +18,8 @@ namespace BlazorSozluk.Infrastucture.Persistence.EntityConfiguration.Entry
             builder.ToTable("entry", BlazorSozlukContext.DEFAULT_SCHEMA);
 
             builder.HasOne(i => i.CreatedBy)
-                   .WithMany(i => i.Entries)
-                   .HasForeignKey(i => i.CreatedBy);
+                .WithMany(i => i.Entries)
+                .HasForeignKey(i => i.CreatedBy);   
         }
     }
 }

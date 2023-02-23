@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +18,11 @@ namespace BlazorSozluk.Api.Domain.Models
         public virtual User CreatedBy { get; set; }
 
         public virtual ICollection<EntryComment> EntryComments { get; set; }
-
+        
         public virtual ICollection<EntryVote> EntryVotes { get; set; }
 
         public virtual ICollection<EntryFavorite> EntryFavorites { get; set; }
+
 
 
     }

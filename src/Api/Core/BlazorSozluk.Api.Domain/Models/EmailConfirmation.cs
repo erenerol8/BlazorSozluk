@@ -10,6 +10,6 @@ namespace BlazorSozluk.Api.Domain.Models
     {
         public string OldEmailAddress { get; set; }
 
-        public string NewEmailAddress { get; set; }
+        public string NewMailAddress { get; set; }
     }
 }
