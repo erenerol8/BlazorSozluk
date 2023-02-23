@@ -23,8 +23,10 @@ namespace BlazorSozluk.Infrastucture.Persistence.EntityConfigurations.Entry
                 .HasForeignKey(i => i.EntryId);
 
             builder.HasOne(i => i.CreatedUser)
-                   .WithMany(i => i.EntryFavorites)
+                   .WithMany(i => i.EntryFavorite)
                    .HasForeignKey(i => i.CreatedById);
+
+                           
         }
     }
 }
