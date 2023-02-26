@@ -16,7 +16,7 @@ namespace BlazorSozluk.Infrastucture.Persistence.EntityConfigurations
             builder.HasKey(i => i.Id);
 
             builder.Property(i => i.Id).ValueGeneratedOnAdd();
-            builder.Property(i => i.CreatedDate).ValueGeneratedOnAdd();
+            builder.Property(i => i.CreateDate).ValueGeneratedOnAdd();
         }
     }
 }

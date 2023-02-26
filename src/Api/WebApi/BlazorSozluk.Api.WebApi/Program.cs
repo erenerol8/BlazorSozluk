@@ -1,4 +1,6 @@
 
+
+
 using BlazorSozluk.Infrastucture.Persistence.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);

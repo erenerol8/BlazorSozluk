@@ -14,34 +14,31 @@ namespace BlazorSozluk.Infrastucture.Persistence.Context
     {
         public const string DEFAULT_SCHEMA = "dbo";
 
-        public BlazorSozlukContext(DbContextOptions options) : base(options)
+        public BlazorSozlukContext()
         {
 
         }
 
+        public BlazorSozlukContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<User> Users { get; set; }
-
         public DbSet<Entry> Entries { get; set; }
-
-
-        public DbSet<EmailConfirmation> EmailConfirmations { get; set; }  
-
-        public DbSet<EntryFavorite> EntryFavorites { get; set; } 
-        
-        public DbSet<EntryVote> EntryVotes { get; set; }    
-
-        public DbSet<EntryComment> EntryComments { get; set; }  
-
+        public DbSet<EntryVote> EntryVotes { get; set; }
+        public DbSet<EntryFavorite> EntryFavorites { get; set; }    
+        public DbSet<EntryComment> EntryComments { get; set; }
+        public DbSet<EntryCommentVote> EntryCommentVote { get; set; }
         public DbSet<EntryCommentFavorite> EntryCommentFavorites { get; set; }
-
-        public DbSet<EntryCommentVote> EntryCommentVotes { get; set; }
+        public DbSet<EmailConfirmation> EmailConfirmations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if(!optionsBuilder.IsConfigured)
+            if (!optionsBuilder.IsConfigured)
             {
-                var SqlCon = "Data Source=localhost; Initial Catalog=blazorsozluk; Persist Security Info=True; User ID=sa;Password=Project123!";
-                optionsBuilder.UseSqlServer(SqlCon, opt =>
+                var sqlCon = "Server=(LocalDb)\\MSSQLLocalDB; Database = BlazorSozlukDb; Trusted_Connection = True";
+
+                optionsBuilder.UseSqlServer(sqlCon, opt =>
                 {
                     opt.EnableRetryOnFailure();
                 });
@@ -51,6 +48,7 @@ namespace BlazorSozluk.Infrastucture.Persistence.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
         }
 
         public override int SaveChanges()
@@ -82,16 +80,14 @@ namespace BlazorSozluk.Infrastucture.Persistence.Context
             var addedEntites = ChangeTracker.Entries()
                 .Where(i => i.State == EntityState.Added)
                 .Select(i => (BaseEntity)i.Entity);
-
-            PrepareAddedEntites(addedEntites);
         }
 
-        private void PrepareAddedEntites(IEnumerable<BaseEntity> entities)
+        private void PrepareAddedEntities(IEnumerable<BaseEntity> entities)
         {
             foreach (var entity in entities)
             {
-                if(entity.CreatedDate == DateTime.MinValue)
-                entity.CreatedDate = DateTime.Now;
+                if(entity.CreateDate == DateTime.MinValue)
+                entity.CreateDate = DateTime.Now;
             }
         }
     }
