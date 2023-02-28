@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "nt/1sXaKJoCobrVDUoY3PUyAYO+NbhvK/RUPepvNqcgIVCudOj9w3y3CzsYpZRQHYpW0YMzZOwIFNR+XHJHbdg==",
+  "dgSpecHash": "4yQOh+UCON1c7zrjhhfPBZ/VRDKgKlou36s8Lo1esgfAO/ayexnVl3hy4E1pXdhd8RRZBcp8v+hEQiIYq+xIqA==",
   "success": true,
   "projectFilePath": "C:\\Users\\erent\\OneDrive\\Masaüstü\\BlazorSozluk\\src\\Common\\BlazorSozluk.Common\\BlazorSozluk.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\erent\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\erent\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
